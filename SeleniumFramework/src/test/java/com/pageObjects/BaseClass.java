@@ -64,15 +64,15 @@ public class BaseClass {
 		{
 			//Can use any steps below to capture screenshots
 			
-//			logger.fail("Test Failed",MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(driver)).build());
-			logger.addScreenCaptureFromPath(Helper.captureScreenshot(driver),"Test Failed");
+			logger.fail("Test Failed",MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(driver)).build());
+//			logger.addScreenCaptureFromPath(Helper.captureScreenshot(driver),"Test Failed");
 		}
 		else if(result.getStatus()==ITestResult.SUCCESS)
 		{
 			//Can use any steps below to capture screenshots
 			
-//			logger.pass("Test Passed",MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(driver)).build());
-			logger.addScreenCaptureFromPath(Helper.captureScreenshot(driver),"Test Passed");
+			logger.pass("Test Passed",MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(driver)).build());
+//			logger.addScreenCaptureFromPath(Helper.captureScreenshot(driver),"Test Passed");
 		}
 		
 		report.flush();
