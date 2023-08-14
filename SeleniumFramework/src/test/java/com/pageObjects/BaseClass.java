@@ -10,6 +10,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -41,10 +42,11 @@ public class BaseClass {
 		report.attachReporter(extent);
 	}
 	
+	@Parameters({"browser","url"})
 	@BeforeClass
-	public void setUp()
+	public void setUp(String browser, String url)
 	{
-		driver=BrowserFactory.startApplication(driver, config.getBrowser(), config.getAppUrl());
+		driver=BrowserFactory.startApplication(driver, browser, url);
 	}
 	
 	
@@ -60,12 +62,17 @@ public class BaseClass {
 	{
 		if(result.getStatus()==ITestResult.FAILURE)
 		{
-			Helper.captureScreenshot(driver);
-			logger.fail("Test Failed",MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(driver)).build());
+			//Can use any steps below to capture screenshots
+			
+//			logger.fail("Test Failed",MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(driver)).build());
+			logger.addScreenCaptureFromPath(Helper.captureScreenshot(driver),"Test Failed");
 		}
 		else if(result.getStatus()==ITestResult.SUCCESS)
 		{
-			logger.pass("Test Passed",MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(driver)).build());
+			//Can use any steps below to capture screenshots
+			
+//			logger.pass("Test Passed",MediaEntityBuilder.createScreenCaptureFromPath(Helper.captureScreenshot(driver)).build());
+			logger.addScreenCaptureFromPath(Helper.captureScreenshot(driver),"Test Passed");
 		}
 		
 		report.flush();

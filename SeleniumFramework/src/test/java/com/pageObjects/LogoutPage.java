@@ -23,7 +23,7 @@ public class LogoutPage {
 	{
 
 		driver.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS);
-//		menu.click();
+		menu.click();
 		logout.click();
 	}
 	
