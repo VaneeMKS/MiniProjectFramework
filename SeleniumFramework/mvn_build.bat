@@ -1,4 +1,4 @@
 mvn clean install ^
--Dbrowser=chrome ^
+-Dbrowser=Chrome ^
 -Durl=https://www.saucedemo.com ^
 -DxmlFile=testng.xml
