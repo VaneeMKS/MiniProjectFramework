@@ -48,7 +48,8 @@ public class BaseClass {
 	{
 		driver=BrowserFactory.startApplication(driver, browser, url);
 	}
-		
+	
+	
 	@AfterClass
 	public void tearDown()
 	{
